@@ -1,26 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
+import About from './components/AboutMeComponent';
+import Header from './components/HeaderComponent';
+import Gallery from './components/GalleryComponent';
+import Advertisements from './components/AdvertisementsComponent';
+import Commercials from './components/CommercialsComponent';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+
+class App extends Component {
+    render() {
+        return (
+            <div className="App">
+              <Header />
+              <Switch>
+                <Route path="/about" component={About} />
+                {/* <Redirect to="/about" /> */}
+                <Route path="/gallery" component={Gallery} />
+                <Route path="/advertisements" component={Advertisements} />
+                <Route path="/commercials" component={Commercials} />
+              </Switch>
+            </div>
+          );
+    }
+  }
 
 export default App;
